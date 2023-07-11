@@ -1,0 +1,82 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <title>My Book Lybrary</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="src/styles.css">
+  </head>
+  <body>
+    <div id="new-book-window" class="hide center shadow">
+      <img
+        class="close-icon2"
+        id="close-window-btn"
+        src="https://flaticons.net/custom.php?i=4B6hOMcQIDIoInIN0ho6gOWfl&format=png"
+      />
+      <form>
+        <div id="grid" class="full-width">
+            <div id="inputs-div">
+              <h3>Add new book to library</h3>
+              <label for="img-uploader">Select Cover Image:</label><br /><br />
+              <input
+                type="file"
+                id="img-uploader"
+                name="img"
+                accept="image/*"
+              /><br /><br />
+              <input
+                type="text"
+                placeholder="Book Title"
+                id="book-title"
+                class="custom-input full-width"
+                required
+              />
+              <br /><br />
+              <input
+                type="text"
+                placeholder="Author's Name"
+                id="author"
+                class="custom-input full-width"
+                required
+              /><br /><br />
+              <input
+                type="number"
+                placeholder="Number of pages"
+                id="pages"
+                class="custom-input full-width" 
+                required
+              /><br /><br />
+              <input type="radio"            
+                name="read" 
+                value="read"       
+                id="read" /><label
+                for="read"
+                required
+              >
+                Have already read</label
+              ><br />
+              <input
+                type="radio"
+                name="read"
+                value="not-read"
+                id="not-read"
+                required
+              /><label for="not-read"> Haven't read yet</label><br /><br />
+              <input type="submit" value="Register Book" id="register-book">
+            </form>
+          </div>
+          <div id="img-preview-div"></div>
+        </div>
+      </div>
+    <div id="book-list">
+      <div id="top-section">
+        <h3>My Books</h3>
+        <a href="login.html"><img id="logout-btn" src="https://static-00.iconduck.com/assets.00/log-out-icon-1024x1024-90bzm0pv.png"></a></div>
+      </div>
+      <p id="no-books-message" class="center">You don't have any books yet!</p>
+      <div id="my-books">
+      </div>
+      <button id="new-book-btn" class="plus-btn">+</button>
+      <script type="module" src="/src/index.js"></script>
+    </div>
+  </body>
+</html>
