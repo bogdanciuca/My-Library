@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, addDoc  } from 'firebase/firestore';
-import { } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+
 const firebaseConfig = {
   apiKey: "AIzaSyDip2ERAhJXWPZhVP3gEBWxeCkkL40yYW8",
   authDomain: "biblioteca-dc1e4.firebaseapp.com",
@@ -13,17 +13,22 @@ const firebaseConfig = {
 }
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore (app)
+const auth = getAuth(app);
 
-try {
-  const docRef = await addDoc(collection(db, "users"), {
-    first: "Ada",
-    last: "Lovelace",
-    born: 1815
+let email = document.getElementById('email-input')
+let password = document.getElementById('pssword-input')
+let registerBtn = document.getElementById('register-btn')
+
+registerBtn.addEventListener('click', function(){
+  createUserWithEmailAndPassword(auth, email.value, password.value)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
   });
-  console.log("Document written with ID: ", docRef.id);
-} catch (e) {
-  console.error("Error adding document: ", e);
-}
-
-document.getElementsByClassName()
+})
