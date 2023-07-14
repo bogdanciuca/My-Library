@@ -16,19 +16,20 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 let email = document.getElementById('email-input')
-let password = document.getElementById('pssword-input')
-let registerBtn = document.getElementById('register-btn')
+let password = document.getElementById('password-input')
 
-registerBtn.addEventListener('click', function(){
+window.register = () => {
   createUserWithEmailAndPassword(auth, email.value, password.value)
   .then((userCredential) => {
     // Signed in 
-    const user = userCredential.user;
+    const user = userCredential.user
     // ...
+    console.log(user)
   })
   .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
+    const errorCode = error.code
+    const errorMessage = error.message
     // ..
-  });
-})
+    console.log(error)
+  })
+}
